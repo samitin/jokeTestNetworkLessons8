@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">jokeTestNetworkLessons8</string>
+    <string name="no_internet">Нет интернета!!!</string>
+    <string name="service_unavaible">Сервис недоступен!!!</string>
+</resources>

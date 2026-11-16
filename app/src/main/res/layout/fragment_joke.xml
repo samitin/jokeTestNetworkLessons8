@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainJoke"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainActivity">
+
+    <com.example.joketestnetworklessons8.core_ui.CustomTextView
+        android:id="@+id/textJoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Joke massage!"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true" />
+    <com.example.joketestnetworklessons8.core_ui.CustomTextView
+        android:id="@+id/textJokeError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="error massage!"
+        android:gravity="center"
+        android:textColor="@color/design_default_color_error"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true" />
+    <com.example.joketestnetworklessons8.core_ui.CustomProgressBar
+        android:id="@+id/progressBarJoke"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+    <com.example.joketestnetworklessons8.core_ui.CustomButton
+        android:id="@+id/buttonRandomJoke"
+        android:text="Random Joke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>
