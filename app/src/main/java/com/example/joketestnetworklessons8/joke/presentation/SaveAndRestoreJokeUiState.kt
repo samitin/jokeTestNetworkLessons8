@@ -1,6 +1,6 @@
 package com.example.joketestnetworklessons8.joke.presentation
 
-import com.example.joketestnetworklessons8.core_ui.SaveAndRestoreState
+import com.example.joketestnetworklessons8.core.SaveAndRestoreState
 
 interface SaveAndRestoreJokeUiState {
 
