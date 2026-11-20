@@ -31,8 +31,10 @@ interface JokeViewModel : MyViewModel<JokeUiState>, SaveJokeUiState, Observed{
         override fun observed() = observable.clear()
 
         override fun nextJoke() {
-            observable.update(JokeUiState.Loading)
-            interactor.getJoke().map(mapper)
+            Thread{
+                observable.update(JokeUiState.Loading)
+                interactor.getJoke().map(mapper)
+            }.start()
         }
 
         override fun startGettingUpdates(observer: UiObserver<JokeUiState>) {

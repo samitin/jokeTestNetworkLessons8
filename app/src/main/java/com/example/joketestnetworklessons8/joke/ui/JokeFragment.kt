@@ -26,9 +26,11 @@ class JokeFragment : BaseFragment<JokeViewModel, FragmentJokeBinding>() {
 
         observer = object : JokeObserver {
             override fun update(data: JokeUiState) {
-                // data.observed(viewModel)
-                data.show(binding.textJoke, binding.textJokeError, binding.progressBarJoke, binding.buttonRandomJoke)
-            }
+                activity?.runOnUiThread{
+                    // data.observed(viewModel)
+                    data.show(binding.textJoke, binding.textJokeError, binding.progressBarJoke, binding.buttonRandomJoke)
+                }
+              }
         }
         binding.buttonRandomJoke.setOnClickListener {
             viewModel.nextJoke()

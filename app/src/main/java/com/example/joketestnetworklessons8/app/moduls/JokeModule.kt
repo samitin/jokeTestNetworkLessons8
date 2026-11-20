@@ -6,6 +6,9 @@ import com.example.joketestnetworklessons8.core.HandleDeath
 import com.example.joketestnetworklessons8.core.Module
 import com.example.joketestnetworklessons8.core.error.HandleError
 import com.example.joketestnetworklessons8.joke.data.BaseJokeRepository
+import com.example.joketestnetworklessons8.joke.data.JokeDtoToLoadResultMapper
+import com.example.joketestnetworklessons8.joke.data.cloud.BaseCloudDataSource
+import com.example.joketestnetworklessons8.joke.data.cloud.BaseJokeService
 import com.example.joketestnetworklessons8.joke.domain.DomainExceptionToJokeResult
 import com.example.joketestnetworklessons8.joke.domain.JokeInteractor
 import com.example.joketestnetworklessons8.joke.domain.LoadResultToJokeResult
@@ -23,7 +26,12 @@ class JokeModule(
             observable,
 
             JokeInteractor.Base(
-                BaseJokeRepository(HandleError.Base()),
+                BaseJokeRepository(
+                    BaseCloudDataSource(
+                        BaseJokeService()
+                    ),
+                    JokeDtoToLoadResultMapper(),
+                    HandleError.Base()),
                 LoadResultToJokeResult.Base(),
                 DomainExceptionToJokeResult.Base(
                     BaseProvideResource(core.resourceManager())
