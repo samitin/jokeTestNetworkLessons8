@@ -1,8 +1,9 @@
 package com.example.joketestnetworklessons8.joke.data.cloud
 
+import retrofit2.Call
+import retrofit2.http.GET
+
 interface JokeService {
-    fun getJoke(callback: ServiceCallback)
-}
-interface ServiceCallback{
-    fun returnSuccess(jokeDto: JokeDto)
+    @GET("/joke/Any?type=single&safe_mode")
+    fun getJoke() : Call<JokeDto>
 }

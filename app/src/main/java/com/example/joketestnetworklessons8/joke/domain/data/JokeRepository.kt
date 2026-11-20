@@ -2,5 +2,5 @@ package com.example.joketestnetworklessons8.joke.domain.data
 
 interface JokeRepository {
 
-    fun getJoke() : LoadResult
+    suspend fun getJoke() : LoadResult
 }
