@@ -9,8 +9,8 @@ class BaseCloudDataSource (
         var joke : JokeDto ?= null
         service.getJoke(
             object : ServiceCallback {
-                override fun returnSuccess(category: String, data: String) {
-                    joke = JokeDto(category = category, setup = data)
+                override fun returnSuccess(jokeDto: JokeDto) {
+                    joke = jokeDto
                 }
             }
         )

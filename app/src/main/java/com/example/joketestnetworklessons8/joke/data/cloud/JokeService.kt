@@ -4,5 +4,5 @@ interface JokeService {
     fun getJoke(callback: ServiceCallback)
 }
 interface ServiceCallback{
-    fun returnSuccess(category : String,data : String)
+    fun returnSuccess(jokeDto: JokeDto)
 }

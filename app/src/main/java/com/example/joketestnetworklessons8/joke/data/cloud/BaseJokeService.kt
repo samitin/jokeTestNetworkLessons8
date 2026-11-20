@@ -1,22 +1,22 @@
 package com.example.joketestnetworklessons8.joke.data.cloud
 
+import com.google.gson.Gson
 import java.io.BufferedInputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.UnknownHostException
 
-class BaseJokeService : JokeService {
+class BaseJokeService(private val gson: Gson) : JokeService {
     override fun getJoke(callback: ServiceCallback) {
             var connection: HttpURLConnection? = null
             try {
                 val url = URL(JOKE_URL)
                 connection = url.openConnection() as HttpURLConnection
                 InputStreamReader(BufferedInputStream(connection.inputStream)).use {
-                    val lines = it.readLines()
-                    val category = lines[2].split(":")[1]
-                    val joke: String = lines[4].split(":")[1]
-                    callback.returnSuccess(category,joke)
+                    val line = it.readText()
+                    val dto = gson.fromJson(line, JokeDto::class.java)
+                    callback.returnSuccess(dto)
                 }
             }finally {
                 connection?.disconnect()

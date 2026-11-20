@@ -15,6 +15,7 @@ import com.example.joketestnetworklessons8.joke.domain.LoadResultToJokeResult
 import com.example.joketestnetworklessons8.joke.presentation.JokeObservable
 import com.example.joketestnetworklessons8.joke.presentation.JokeResultToUiStateMapper
 import com.example.joketestnetworklessons8.joke.presentation.JokeViewModel
+import com.google.gson.Gson
 
 class JokeModule(
     private val core: Core,
@@ -28,7 +29,7 @@ class JokeModule(
             JokeInteractor.Base(
                 BaseJokeRepository(
                     BaseCloudDataSource(
-                        BaseJokeService()
+                        BaseJokeService(Gson())
                     ),
                     JokeDtoToLoadResultMapper(),
                     HandleError.Base()),

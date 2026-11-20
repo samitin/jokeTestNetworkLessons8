@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.13.1")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
